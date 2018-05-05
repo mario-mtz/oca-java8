@@ -27,4 +27,44 @@ public class AppTest {
         assertThat(precedence).isEqualTo(9);
         assertThat(precedenceOverriden).isEqualTo(-6);
     }
+    
+    @Test
+    @DisplayName("String operation test")
+    void testStringMethods() {
+        String phoneNum = "404-543-2345";
+        int index = phoneNum.indexOf("-");
+        assertThat(index ).isEqualTo(3);
+        
+        int index2 = phoneNum.indexOf("-", index + 1);
+        assertThat(index2 ).isEqualTo(7);
+        
+        
+    }
+    
+    @Test
+    @DisplayName("String sibtring test")
+    void testStringSubtringMethod() {
+        String phoneNum = "404-543-2345";
+        
+        assertThat(phoneNum.substring(3, 7) ).isEqualTo("-543");
+        assertThat(phoneNum.substring(4, 7) ).isEqualTo("543");
+        
+        int index = phoneNum.indexOf("-");
+        
+        assertThat(phoneNum.substring(index+1, index+4) ).isEqualTo("-543");
+        assertThat(phoneNum.substring(index+1, index+4) ).isEqualTo("543");
+        
+        assertThat(phoneNum.substring(7) ).isEqualTo("-2345");
+        assertThat(phoneNum.substring(8) ).isEqualTo("2345");  
+        
+        int index2 = phoneNum.indexOf("-", index + 1);
+        
+        assertThat(phoneNum.substring(index2+1, index2+5) ).isEqualTo("-2345");
+        assertThat(phoneNum.substring(index2+1, index2+5) ).isEqualTo("2345");
+        
+        StringBuilder certificatic = new StringBuilder("Certificatic");
+        certificatic.append(" rules!");
+        
+        assertThat(certificatic.toString()).isEqualTo("Certificatic rules!");
+    }
 }
